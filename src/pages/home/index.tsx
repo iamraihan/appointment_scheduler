@@ -1,6 +1,6 @@
 import React from "react";
 import { AppButton, AppDataTable } from "@/helpers/ui";
-import { Trash2 } from "react-feather";
+import { MoreHorizontal, Trash2 } from "react-feather";
 import { Column, ITableData } from "@/pages/home/helper/types";
 import { data } from "./helper/uiData";
 
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
             className="font-bold ps-4 hover:underline cursor-pointer"
             onClick={() => actionsHandler(row)}
           >
-            Actions
+            <MoreHorizontal />
           </div>
         </div>
       ),
