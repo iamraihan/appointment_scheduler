@@ -5,7 +5,7 @@ export interface IAppButtonProps {
   btnType?: ButtonTypes;
   title?: string;
   disabled?: boolean;
-  loader?: string;
+  loader?: string | boolean;
   loaderText?: string;
   callBack?: () => void;
   customClass?: string;

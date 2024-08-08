@@ -1,8 +1,8 @@
 import React from "react";
-import { AppButton, AppDataTable } from "@/helpers/ui";
-import { MoreHorizontal, Trash2 } from "react-feather";
+import { AppActionDropdown, AppButton, AppDataTable } from "@/helpers/ui";
+import { Trash2 } from "react-feather";
 import { Column, ITableData } from "@/pages/home/helper/types";
-import { data } from "./helper/uiData";
+import { actions, data } from "@/pages/home/helper/uiData";
 
 // Define the Column type
 
@@ -13,8 +13,14 @@ const Home: React.FC = () => {
     console.log("Run delete handler...");
   };
 
-  const actionsHandler = (row: ITableData) => {
+  // const actionsHandler = (row: ITableData) => {
+  //   console.log("row: ", row);
+  // };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleActionClick = (event: any, row: ITableData) => {
     console.log("row: ", row);
+    console.log("event: ", event);
   };
 
   const columns: Column<ITableData>[] = [
@@ -50,9 +56,12 @@ const Home: React.FC = () => {
         <div className="relative inline-block text-left">
           <div
             className="font-bold ps-4 hover:underline cursor-pointer"
-            onClick={() => actionsHandler(row)}
+            // onClick={() => actionsHandler(row)}
           >
-            <MoreHorizontal />
+            <AppActionDropdown
+              actions={actions}
+              callback={(event) => handleActionClick(event, row)}
+            />
           </div>
         </div>
       ),
@@ -78,6 +87,7 @@ const Home: React.FC = () => {
         customSize="font-medium text-18 text-dark"
         // options={{ isInitialLoading: loading }} // Uncomment when implementing API loading
       />
+      <div></div>
     </div>
   );
 };
