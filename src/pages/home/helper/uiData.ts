@@ -16,3 +16,13 @@ export const data: ITableData[] = [
     time: "2:00 PM",
   },
 ];
+
+export const actions = [
+  {
+    id: 1,
+    label: "Upcoming Appointments",
+    type: "upcoming_appointments",
+    show: true,
+  },
+  { id: 2, label: "Cancel", type: "cancel", show: true },
+];
